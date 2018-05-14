@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+</head>
+<body>
+
+  <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <symbol id="icon-menu" viewBox="0 0 31 32">
+        <title>menu</title>
+        <path d="M2 8h28v4h-28zM2 16h28v4h-28zM2 24h28v4h-28z"></path>
+      </symbol>  
+      <symbol id="icon-pencil" viewBox="0 0 31 32">
+        <title>pencil</title>
+        <path d="M30.016 7.84q0.704 0.704 0.704 1.76t-0.704 1.76l-18.24 18.24q-0.704 0.672-1.92 1.216t-2.336 0.544h-7.52v-7.488q0-1.12 0.544-2.368t1.216-1.92l18.24-18.24q0.736-0.704 1.76-0.704t1.76 0.704zM4.608 21.472l2.080 2.048 13.792-13.856-2.048-2.016zM7.52 28.032q0.448 0 1.056-0.256-0.32-0.32-0.864-0.832t-1.6-1.6-1.792-1.792l-0.704-0.704q-0.288 0.672-0.288 1.024v2.496l1.664 1.664h2.528zM9.888 26.752l13.824-13.824-2.016-2.048-13.856 13.792zM24.896 11.744l2.144-2.144-5.28-5.28-2.144 2.112z"></path>
+      </symbol>
+      <symbol id="icon-cross" viewBox="0 0 32 32">
+        <title>cross</title>
+        <path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="overlay"></div>
+
+  <div class="content">
+    <div class="edit-popup hidden">
+      <form action="javascript:void(0);" method="POST" class="edit-form">
+        <input type="text" class="edit-form__input" id="edit-id" placeholder="ID">
+        <input type="text" class="edit-form__input" id="edit-hid" placeholder="HID">
+        <input type="text" class="edit-form__input" id="edit-name" placeholder="Наименование">
+        <input type="text" class="edit-form__input" id="edit-adress" placeholder="Адрес">
+        <input type="text" class="edit-form__input" id="edit-phone" placeholder="Телефон">
+        <div class="edit-form_buttons">
+          <input type="submit" class="edit-form__button" value="Сохранить"> 
+          <input type="submit" class="cancel_edit_button" value="Отменить"> 
+        </div>
+      </form>
+    </div>
+      
+
+    <form class="load-form"> 
+      <label class="load-form__label">
+        <input type="file" class="load-form__button" >
+        <span class="load-form__text">Загрузить файл</span>
+      </label>
+    </form>
+
+    <form  class="clearLocalStorage-form"> 
+      <input type="submit" class="clearLocalStorage-form__button" value="Очистить localStorage">
+    </form>
+
+    <form action="javascript:void(0);" method="POST" class="add-form"> 
+      <input type="text" class="add-form__input" id="add-id" placeholder="ID">
+      <input type="text" class="add-form__input" id="add-hid" placeholder="HID">
+      <input type="text" class="add-form__input" id="add-name" placeholder="Наименование">
+      <input type="text" class="add-form__input" id="add-adress" placeholder="Адрес">
+      <input type="text" class="add-form__input" id="add-phone" placeholder="Телефон">
+      <input class="add-form__button" type="submit" value="Добавить">
+    </form>
+
+    <table class="table">
+        <tbody class="table__body">
+          <tr class="table__panel">
+            <th class="panel__cell">
+              <button class="show-all-button">
+                <svg class="icon icon-menu" tabindex="0"><use xlink:href="#icon-menu"/></svg>
+              </button>
+            </th>
+            <th class="panel__cell">ID</th>
+            <th class="panel__cell">HID</th>
+            <th class="panel__cell">Наименование</th>
+            <th class="panel__cell">Адрес</th>
+            <th class="panel__cell">Телефон</th>
+            <th class="table__cell_button"></th>
+            <th class="table__cell_button"></th>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/backend.js"></script>
+  <script src="js/debounce.js"></script>
+  <script src="js/data.js"></script>
+</body>
+</html>
+

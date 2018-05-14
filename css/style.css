@@ -1,0 +1,278 @@
+
+/* Общие */
+
+html {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #24292e;
+  background-color: #f5f5f5;
+}
+
+.content {
+  padding: 25px 50px;
+}
+
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+
+/* Состояния */
+
+.hidden {
+  visibility: hidden;
+}
+
+/* Оверлей */
+
+.overlay {
+  display: none;
+  opacity: 0.65;
+  background-color: #000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.modal_open {
+  display: block;
+}
+
+/* Окно редактирования */
+
+.edit-popup {
+  z-index: 200;
+  position: fixed;
+  margin: auto;
+  width: 40vw;
+  height: 200px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  text-align: center;
+  padding-top: 60px;
+  color: #24292e;
+  background-color: white;
+  opacity: 0.85;
+  border-radius: 5px;
+  border: 2px solid #8bbdc7;
+}
+
+/* Форма загрузки */
+
+.load-form {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 175px;
+  background: #4169E1;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.load-form:hover {
+  background-color: rgba(53, 111, 219, .8);
+}
+
+.load-form:active {
+  background-color: rgba(29, 52, 94, 1);
+}
+
+.load-form__text {
+  cursor: pointer;
+}
+
+/* Форма очистки */
+
+.clearLocalStorage-form {
+  width: 175px;
+}
+
+/* Форма добавления строки */
+
+.add-form {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.add-form__input,
+.edit-form__input {
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid #bac1c2;
+  font-size: 16px;
+  background-color: inherit;
+  margin-right: 15px;
+  outline: none;
+}
+
+.edit-form__input {
+  margin-bottom: 35px;
+}
+
+.add-form__input:focus,
+.edit-form__input:focus {
+  border-bottom: 1px solid #29805c;
+} 
+
+/* Таблица */
+
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%; 
+  border-spacing: 5px;
+  background-color: rgba(210, 210, 210, .35);
+  border: 1px solid rgb(135, 135, 135);
+}
+
+.table__panel {
+  height: 50px;
+}
+
+.table__cell,
+.panel__cell {
+  padding: 5px;
+  border: 1px solid rgb(135, 135, 135);
+}
+
+.table__row {
+  background-color: #f9f9f9;
+  border: 1px solid rgb(135, 135, 135);
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  height: 50px;
+}
+
+.table__row_hidden {
+  font-size: 0px;
+  height: 25px;
+}
+
+.table__cell_hidden {
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.table__cell_button {
+  width: 30px;
+}
+
+.marked_row {
+  background-color: rgba(169, 221, 232, 0.93);
+}
+
+/* Окно с ошибкой */
+
+.load-message {
+  z-index: 200;
+  position: absolute;
+  margin: auto;
+  width: 25vw;
+  height: 200px;
+  padding-top: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 5px;
+  border: 2px solid red;
+  line-height: 2em;
+}
+
+/* Кнопки */
+
+.clearLocalStorage-form__button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.add-form__button,
+.edit-form__button,
+.cancel_edit_button {
+  min-width: 100px;
+  padding: 6px 11px;
+  background-color: #34b07e;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-form__button:hover,
+.edit-form__button:hover {
+  background-color: #70bd9e;
+}
+
+.add-form__button:active,
+.edit-form__button:active {
+  background-color: #29805c;
+}
+
+.cancel_edit_button {
+  background-color: rgb(197, 193, 193);
+}
+
+.deleteButton,
+.editButton,
+.hideButton {
+  border: 0;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.deleteButton:hover > .icon {
+  fill: rgb(148, 61, 61);
+}
+
+.editButton:hover > .icon,
+.show-all-button:hover > .icon {
+  fill: rgb(22, 16, 16);
+}
+
+.show-all-button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+} 
+
+.load-form__button {
+  display: none;
+}
+
+.clearLocalStorage-form__button {
+  border: none;
+  padding: 5px;
+  min-width: 175px;
+  background: rgba(181, 181, 189, 0.5);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.table__cell_button {
+  text-align: center;
+}
+
+/* Иконки */
+
+.icon {
+  width: 15px;
+  height: 15px;
+  fill: rgba(70, 73, 74, 0.5);
+}
